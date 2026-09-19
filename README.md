@@ -1,47 +1,42 @@
-# B2B-SaaS-Customer-Churn-Survival-Analysis
-Project Overview
-This repository contains an end-to-end predictive survival analysis framework designed to identify at-risk enterprise clients before they reach critical cancellation windows. Moving beyond traditional binary classification (churn vs. no churn), this project leverages time-to-event modeling to forecast individual customer lifespans, isolating the operational bottlenecks that drive account churn.
+# B2B SaaS Customer Churn & Survival Analysis
 
-The primary objective is to translate complex probabilistic outputs into an actionable retention framework for Customer Success teams, enabling targeted interventions that protect Annual Recurring Revenue (ARR) and optimize Customer Acquisition Cost (CAC) ROI.
+## Project Overview
+This project develops an end-to-end predictive survival analysis framework designed to forecast client lifespans and identify at-risk enterprise accounts before they reach critical cancellation windows. 
 
-Dataset
-Source: RavenStack B2B SaaS dataset
+While traditional churn models rely on static binary classification (churn vs. no churn), this framework uses time-to-event survival modeling to isolate the temporal risk factors and operational bottlenecks driving account attrition. The goal is to translate probabilistic risk curves into an actionable retention framework for Customer Success teams to protect recurring revenue streams (ARR) and optimize retention ROI.
 
-Features: Multi-tier account structures, usage metrics, contract parameters, and historical retention logs.
+---
 
-Methodology & Architecture
-This project utilizes a multi-layered analytical pipeline to model non-linear risk factors and temporal churn patterns:
+## Dataset
+* **Source:** RavenStack B2B SaaS dataset
+* **Attributes:** Account tenure, usage volume, feature adoption metrics, support interactions, and contract parameters.
 
-Exploratory Data Analysis (EDA) & Feature Engineering:
+---
 
-Covariate selection and data cleaning for survival modeling.
+## Methodology & Modeling Pipeline
+1. **Data Exploration & Preprocessing:**
+   * Covariate extraction, data hygiene, and handling censored vs. event-observed customer records.
+   * Feature transformation and alignment for time-to-event survival estimators.
+2. **Survival Modeling Framework:**
+   * **Cox Proportional Hazards:** Evaluated hazard ratios across covariates to identify baseline risk drivers.
+   * **Random Survival Forests (RSF):** Modeled non-linear relationships and high-order feature interactions across multi-tiered enterprise accounts.
+3. **Deep Learning Integration:**
+   * **DeepSurv:** Implemented a deep feed-forward neural network architecture acting as a Cox proportional hazards estimator to capture complex behavioral risk patterns.
 
-Identification of behavioral usage patterns and drop-off trends.
+---
 
-Predictive Survival Modeling:
+## Key Business Insights & Strategic Impact
+* **Proactive Account Tiering:** Replaced reactive post-cancellation outreach with a time-based early warning system, grouping accounts by survival probability curves.
+* **Targeted Interventions:** Identifies high-risk accounts weeks prior to renewal milestones, allowing Customer Success teams to deploy localized engagement playbooks.
+* **Commercial ROI:** Demonstrates how data-driven retention directly minimizes customer acquisition churn drag and shields annual recurring revenue.
 
-Cox Proportional Hazards: Quantified baseline survival probabilities and feature impact.
+---
 
-Random Survival Forests: Captured complex, non-linear relationships across account tiers.
+## Tech Stack
+* **Language:** Python
+* **Data Processing & Analysis:** Pandas, NumPy
+* **Machine Learning & Survival Analysis:** Scikit-learn, Scikit-survival, Lifelines
+* **Deep Learning:** PyTorch
+* **Visualization:** Matplotlib, Seaborn
 
-Deep Learning Integration:
-
-DeepSurv: Deployed a Cox proportional hazards deep neural network to map nuanced behavioral risk factors across the enterprise client base.
-
-Technology Stack
-Language: Python
-
-Data Processing: Pandas, NumPy
-
-Machine Learning: Scikit-learn, Scikit-Survival
-
-Deep Learning: PyTorch (DeepSurv implementation)
-
-Visualization: Matplotlib, Seaborn
-
-Business Impact & Strategic Value
-Proactive Risk Management: Transitions retention strategies from reactive (post-cancellation notice) to proactive by tiering accounts based on their predicted survival curves.
-
-Targeted Interventions: Enables Customer Success teams to deploy localized, data-driven outreach weeks before high-risk accounts renew.
-
-Commercial ROI: Directly reduces churn rates to protect recurring revenue streams and improve overall customer lifetime value (CLV).
+---
